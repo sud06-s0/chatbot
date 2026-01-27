@@ -2,7 +2,7 @@
   'use strict';
 
   // Configuration
-  const WIDGET_URL = 'https://your-widget.vercel.app'; // Replace after deployment
+  const WIDGET_URL = 'https://chatbot-mu-ashy.vercel.app'; // Replace after deployment
   const WIDGET_ID = 'intent-chatbot-root';
 
   // Prevent multiple initializations
