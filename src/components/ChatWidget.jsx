@@ -26,7 +26,7 @@ const ChatWidget = () => {
     const init = async () => {
       try {
         const pageType = detectPageType();
-        await initSession(sessionId, pageType);
+        await initSession(sessionId, pageType, window.location.hostname);
         
         // Start behavioral tracking
         const behaviorTracker = new BehaviorTracker(sessionId);
