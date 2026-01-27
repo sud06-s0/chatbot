@@ -54,7 +54,7 @@ const apiRequest = async (endpoint, method = 'GET', body = null) => {
 };
 
 // Initialize session
-export const initSession = async (sessionId, pageType) => {
+export const initSession = async (sessionId, pageType, domain = window.location.hostname) => {
   return apiRequest('/tracking/init', 'POST', {
     sessionId,
     pageType,
