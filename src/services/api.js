@@ -57,7 +57,8 @@ const apiRequest = async (endpoint, method = 'GET', body = null) => {
 export const initSession = async (sessionId, pageType, domain = window.location.hostname) => {
   return apiRequest('/tracking/init', 'POST', {
     sessionId,
-    pageType,
+    domain: domain || window.location.hostname,
+    userAgent: navigator.userAgent || 'unknown',
     timestamp: new Date().toISOString(),
   });
 };
