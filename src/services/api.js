@@ -2,7 +2,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 // ============================================
-// DEBUG LOGGING (Removes after testing)
+// DEBUG LOGGING (Remove after testing)
 // ============================================
 console.log('🔍 Frontend API Configuration:');
 console.log('  Base URL:', API_BASE_URL);
@@ -67,9 +67,11 @@ export const initSession = async (sessionId, pageType, domain = window.location.
 export const sendSignal = async (sessionId, signalType, data, pageType) => {
   return apiRequest('/tracking/signal', 'POST', {
     sessionId,
-    signalType,
-    data,
-    pageType,
+    pageUrl: window.location.href,
+    pageType: pageType || 'other',
+    scrollDepth: data?.depth || 0,
+    timeOnPage: data?.seconds || 0,
+    interactions: data?.interactions || [],
     timestamp: new Date().toISOString(),
   });
 };
